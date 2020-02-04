@@ -40,13 +40,19 @@ namespace Image_Processing_Revised_GPC10
                 Processing.MedianFiltering(median, 3);
                 pictureBox2.Image = median;
                 
+                label4.Text = "PSNR: " + Processing.MedianFiltering(bitmap, 3);
+                
                 Bitmap mean = new Bitmap(pictureBox1.Image);
                 var meanFilter = Processing.ConvolutionFilter(mean, mean3X3);
-                pictureBox3.Image = meanFilter;
-                
+                pictureBox3.Image = meanFilter.Item1;
+
+                label6.Text = "PSNR: " + meanFilter.Item2;
+
                 Bitmap modus = new Bitmap(pictureBox1.Image);
                 var modusFilter = Processing.ConvolutionFilter(modus, modus3X3);
-                pictureBox4.Image = modusFilter;
+                pictureBox4.Image = modusFilter.Item1;
+
+                label7.Text = "PSNR: " + modusFilter.Item2;
             }
         }
 
@@ -58,6 +64,21 @@ namespace Image_Processing_Revised_GPC10
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

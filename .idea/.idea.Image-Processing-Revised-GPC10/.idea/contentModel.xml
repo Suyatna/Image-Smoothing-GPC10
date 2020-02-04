@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\SUYATNA\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\SUYATNA\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Image-Processing-Revised-GPC10.-566690887.00" t="ExcludeRecursive" />
-    <e p="E:\Projects C#\Image-Processing-Revised-GPC10" t="IncludeFlat">
+    <e p="C:\Users\SUYATNA\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Image-Processing-Revised-GPC10.1095453816.00" t="ExcludeRecursive" />
+    <e p="E:\Projects_C#\Image-Processing-Revised-GPC10" t="IncludeFlat">
       <e p="Image-Processing-Revised-GPC10" t="IncludeRecursive">
         <e p="App.config" t="Include" />
         <e p="bin" t="ExcludeRecursive" />

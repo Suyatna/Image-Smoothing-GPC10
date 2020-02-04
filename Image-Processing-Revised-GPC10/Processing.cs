@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Image_Processing_Revised_GPC10
 {
     public class Processing
     {
-        public static void MedianFiltering(Bitmap bitmap, int matrixSize)
+        public static double MedianFiltering(Bitmap bitmap, int matrixSize)
         {
             List<byte> termsList = new List<byte>();
             byte[,] image = new byte[bitmap.Width,bitmap.Height];
+            byte[,] original = new byte[bitmap.Width,bitmap.Height];
+
+            float mseLoop = 0;
             
             // convert to Grayscale
             for (int i = 0; i < bitmap.Width; i++)
@@ -45,14 +49,28 @@ namespace Image_Processing_Revised_GPC10
                     // index-4
                     byte color = terms[4];
                     bitmap.SetPixel(i + 1, j + 1, Color.FromArgb(color, color, color));
+                    
+                    image[i + 1, j + 1] = color;
+
+                    mseLoop = image[i + 1, j + 1] - original[i + 1, j + 1];
                 }
             }
+            
+            // MSE = Mean Square Error
+            float mse = (mseLoop * mseLoop) * (bitmap.Height * bitmap.Width);
+            
+            // PSNR = Peak Signal-to-Noise Ratio
+            double psnr = -10 * Math.Log10((255 * 255) / mse);
+            
+            return psnr;
         }
 
-        public static Bitmap ConvolutionFilter(Bitmap bitmap, double[,] matrix)
+        public static Tuple<Bitmap, double> ConvolutionFilter(Bitmap bitmap, double[,] matrix)
         {
+            Bitmap copyBitmap = bitmap;
             double factor = 1.0 / 9.0;
-            int bias = 0;
+
+            double temp = 0;
 
             BitmapData sourceData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height),
                 ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
@@ -93,9 +111,9 @@ namespace Image_Processing_Revised_GPC10
                         }
                     }
 
-                    blue = factor * blue + bias;
-                    green = factor * green + bias;
-                    red = factor * red + bias;
+                    blue = factor * blue;
+                    green = factor * green;
+                    red = factor * red;
 
                     blue = (blue > 255 ? 255 : (blue < 0 ? 0 : blue));
                     green = (green > 255 ? 255 : (green < 0 ? 0 : green));
@@ -105,6 +123,17 @@ namespace Image_Processing_Revised_GPC10
                     pixelBuffer[byteOffset + 1] = (byte) (green);
                     pixelBuffer[byteOffset + 2] = (byte) (red);
                     pixelBuffer[byteOffset + 3] = 255;
+
+                    Color colorOriginal = copyBitmap.GetPixel(offsetX, offsetY);
+                    double redOriginal = colorOriginal.R;
+                    double greenOriginal = colorOriginal.G;
+                    double blueOriginal = colorOriginal.B;
+
+                    double redOutput = red - redOriginal;
+                    double greenOutput = green - greenOriginal;
+                    double blueOutput = blue - blueOriginal;
+
+                    temp = temp + redOutput + greenOutput + blueOutput;
                 }
             }
             
@@ -115,8 +144,14 @@ namespace Image_Processing_Revised_GPC10
             
             Marshal.Copy(pixelBuffer, 0, resultData.Scan0, pixelBuffer.Length);
             resultBitmap.UnlockBits(resultData);
-            
-            return resultBitmap;
+
+            // MSE = Mean Square Error
+            double mse = (temp * temp) / (bitmap.Height * bitmap.Width);
+
+            // PSNR = Peak Signal-to-Noise Ratio
+            double psnr = -10 * Math.Log10((255 * 255) / mse);
+
+            return Tuple.Create(resultBitmap, psnr);
         }
     }
 }

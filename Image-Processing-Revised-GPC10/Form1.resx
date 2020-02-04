@@ -117,7 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Form1_button1_Click_Image_Files___BMP___JPG___PNG____BMP___JPG___PNG" xml:space="preserve">
-    <value>Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG</value>
-  </data>
 </root>

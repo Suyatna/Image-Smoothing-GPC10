@@ -7,3 +7,12 @@ E:\Projects C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj
 E:\Projects C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj\Debug\Image-Processing-Revised-GPC10.csproj.GenerateResource.cache
 E:\Projects C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj\Debug\Image_Processing_Revised_GPC10.exe
 E:\Projects C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj\Debug\Image_Processing_Revised_GPC10.pdb
+E:\Projects_C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\bin\Debug\Image_Processing_Revised_GPC10.exe.config
+E:\Projects_C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\bin\Debug\Image_Processing_Revised_GPC10.exe
+E:\Projects_C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\bin\Debug\Image_Processing_Revised_GPC10.pdb
+E:\Projects_C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj\Debug\Image-Processing-Revised-GPC10.csprojAssemblyReference.cache
+E:\Projects_C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj\Debug\Image_Processing_Revised_GPC10.Form1.resources
+E:\Projects_C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj\Debug\Image_Processing_Revised_GPC10.Properties.Resources.resources
+E:\Projects_C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj\Debug\Image-Processing-Revised-GPC10.csproj.GenerateResource.cache
+E:\Projects_C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj\Debug\Image_Processing_Revised_GPC10.exe
+E:\Projects_C#\Image-Processing-Revised-GPC10\Image-Processing-Revised-GPC10\obj\Debug\Image_Processing_Revised_GPC10.pdb
